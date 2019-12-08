@@ -2,20 +2,20 @@ package guru.springframework.petclinic.model;
 
 import java.time.LocalDate;
 
-public class Pet
+public class Pet extends BaseEntity
 {
-    private PetType pettype;
+    private PetType petType;
     private Owner owner;
-    private LocalDate birthdate;
+    private LocalDate birthDate;
 
-    public PetType getPettype()
+    public PetType getPetType()
     {
-        return pettype;
+        return petType;
     }
 
-    public void setPettype(PetType pettype)
+    public void setPetType(PetType petType)
     {
-        this.pettype = pettype;
+        this.petType = petType;
     }
 
     public Owner getOwner()
@@ -28,13 +28,13 @@ public class Pet
         this.owner = owner;
     }
 
-    public LocalDate getBirthdate()
+    public LocalDate getBirthDate()
     {
-        return birthdate;
+        return birthDate;
     }
 
-    public void setBirthdate(LocalDate birthdate)
+    public void setBirthDate(LocalDate birthDate)
     {
-        this.birthdate = birthdate;
+        this.birthDate = birthDate;
     }
 }
