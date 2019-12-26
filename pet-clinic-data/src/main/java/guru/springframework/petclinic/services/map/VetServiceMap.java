@@ -6,8 +6,9 @@ import java.util.Set;
 
 import guru.springframework.petclinic.model.Vet;
 import guru.springframework.petclinic.services.CrudService;
+import guru.springframework.petclinic.services.VetService;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long>
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService
 {
     @Override
     public Set<Vet> findAll()
@@ -38,4 +39,6 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
     {
         super.deleteById(id);
     }
+
+
 }
