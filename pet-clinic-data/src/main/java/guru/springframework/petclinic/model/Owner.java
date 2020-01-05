@@ -9,10 +9,32 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Entity
 @Table(name = "owners")
 public class Owner extends Person
 {
+
+    @Builder
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets)
+    {
+        super(id, firstName, lastName);
+        Address = address;
+        City = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
+
     @Column(name = "address")
     private String Address;
 
@@ -24,44 +46,4 @@ public class Owner extends Person
 
     @OneToMany( cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
-
-    public String getAddress()
-    {
-        return Address;
-    }
-
-    public void setAddress(String address)
-    {
-        Address = address;
-    }
-
-    public String getCity()
-    {
-        return City;
-    }
-
-    public void setCity(String city)
-    {
-        City = city;
-    }
-
-    public String getTelephone()
-    {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone)
-    {
-        this.telephone = telephone;
-    }
-
-    public Set<Pet> getPets()
-    {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets)
-    {
-        this.pets = pets;
-    }
 }
