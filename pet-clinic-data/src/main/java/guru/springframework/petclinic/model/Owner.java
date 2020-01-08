@@ -29,17 +29,17 @@ public class Owner extends Person
     public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets)
     {
         super(id, firstName, lastName);
-        Address = address;
-        City = city;
+        this.address = address;
+        this.city = city;
         this.telephone = telephone;
         this.pets = pets;
     }
 
     @Column(name = "address")
-    private String Address;
+    private String address;
 
     @Column(name = "city")
-    private String City;
+    private String city;
 
     @Column(name = "telephone")
     private String telephone;
