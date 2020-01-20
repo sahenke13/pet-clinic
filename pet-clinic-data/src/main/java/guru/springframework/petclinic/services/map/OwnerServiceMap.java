@@ -5,7 +5,6 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import guru.springframework.petclinic.model.Owner;
-
 import guru.springframework.petclinic.model.Pet;
 import guru.springframework.petclinic.services.OwnerService;
 import guru.springframework.petclinic.services.PetService;
@@ -61,21 +60,23 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         }
     }
 
+
     @Override
-    public void delete(Owner object)
-    {
-         this.delete(object);
-    }
+    public void delete(Owner owner) { super.delete(owner); }
 
     @Override
     public void deleteById(Long id)
     {
-        this.deleteById(id);
+        super.deleteById(id);
     }
 
     @Override
     public Owner findByLastName(String lastName)
     {
-        return null;
+       return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equals(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
